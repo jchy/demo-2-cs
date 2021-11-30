@@ -24,6 +24,24 @@ const A = styled.a`
   color: ${(props) => (props.color === "aqua" ? "aqua" : "red")};
 `;
 
+const types = {
+  disabled: "lightgray",
+  primary: "aqua",
+  secondary: "blue"
+};
+
+const Button = styled.button`
+  color: white;
+  background: palevioletred;
+  background: ${(props) =>
+    !types[props.type] ? "palevioletred" : types[props.type]};
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+`;
+
 export default function App() {
   return (
     <>
@@ -34,6 +52,10 @@ export default function App() {
         <h1>Hello CodeSandbox</h1>
         <h2>Start editing to see some magic happen!</h2>
       </Wrapper>
+      <Button>Submit</Button>
+      <Button type="disabled">RESET</Button>
+      <Button type="primary">CHECK</Button>
+      <Button type="secondary">UPDATE</Button>
     </>
   );
 }
